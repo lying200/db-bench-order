@@ -9,24 +9,95 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="app">
-        <n-config-provider :theme="theme">
-            <n-layout>
-                <n-layout-header bordered>
-                    <n-page-header>
-                        <template #title>订单管理系统</template>
-                    </n-page-header>
-                </n-layout-header>
-                <n-layout has-sider>
-                    <n-layout-sider bordered content-style="padding: 24px;">
-                        <n-menu :options="menuOptions" v-model:value="activeKey" @update:value="handleMenuUpdate"></n-menu>
-                    </n-layout-sider>
-                    <n-layout-content content-style="padding: 24px;">
-                        <!-- 订单列表 -->
-                        <n-card v-if="activeKey === 'order-list'" title="订单列表">
-                            <template #header-extra>
-                                <n-button @click="refreshOrders">刷新</n-button>
-                            </template>
+<div id="app">
+    <n-config-provider :theme="theme" :locale="zhCN" :date-locale="dateZhCN">
+        <n-layout>
+            <n-layout-header bordered>
+                <n-page-header>
+                    <template #title>订单管理系统</template>
+                </n-page-header>
+            </n-layout-header>
+            <n-layout has-sider>
+                <n-layout-sider bordered content-style="padding: 24px;">
+                    <n-menu :options="menuOptions" v-model:value="activeKey" @update:value="handleMenuUpdate"></n-menu>
+                </n-layout-sider>
+                <n-layout-content content-style="padding: 24px;">
+                    <!-- 订单列表 -->
+                    <n-card v-if="activeKey === 'order-list'" title="订单列表">
+                        <n-space vertical>
+                            <!-- 筛选表单 -->
+                            <n-card title="筛选条件" size="small">
+                                <n-form :model="orderFilter">
+                                    <n-grid :cols="24" :x-gap="24">
+                                        <n-grid-item :span="6">
+                                            <n-form-item label="店铺名称" label-placement="left">
+                                                <n-input v-model:value="orderFilter.shopName"
+                                                         placeholder="支持模糊搜索"
+                                                         clearable></n-input>
+                                            </n-form-item>
+                                        </n-grid-item>
+                                        <n-grid-item :span="6">
+                                            <n-form-item label="订单状态" label-placement="left">
+                                                <n-select v-model:value="orderFilter.status"
+                                                          :options="orderStatusOptions"
+                                                          placeholder="请选择状态"
+                                                          clearable></n-select>
+                                            </n-form-item>
+                                        </n-grid-item>
+                                        <n-grid-item :span="6">
+                                            <n-form-item label="支付状态" label-placement="left">
+                                                <n-select v-model:value="orderFilter.isPayed"
+                                                          :options="payStatusOptions"
+                                                          placeholder="请选择状态"
+                                                          clearable></n-select>
+                                            </n-form-item>
+                                        </n-grid-item>
+                                        <n-grid-item :span="6">
+                                            <n-form-item label="排序" label-placement="left">
+                                                <n-input-group>
+                                                    <n-select v-model:value="orderFilter.sortField"
+                                                              :options="sortFieldOptions"
+                                                              style="width: 60%"
+                                                              clearable></n-select>
+                                                    <n-select v-model:value="orderFilter.sortDirection"
+                                                              :options="sortDirectionOptions"
+                                                              style="width: 40%"></n-select>
+                                                </n-input-group>
+                                            </n-form-item>
+                                        </n-grid-item>
+                                        <n-grid-item :span="8">
+                                            <n-form-item label="金额范围" label-placement="left">
+                                                <n-input-group>
+                                                    <n-input-number v-model:value="orderFilter.minTotal"
+                                                                    placeholder="最小金额"
+                                                                    clearable></n-input-number>
+                                                    <n-input-number v-model:value="orderFilter.maxTotal"
+                                                                    placeholder="最大金额"
+                                                                    clearable></n-input-number>
+                                                </n-input-group>
+                                            </n-form-item>
+                                        </n-grid-item>
+                                        <n-grid-item :span="8">
+                                            <n-form-item label="时间范围" label-placement="left">
+                                                <n-date-picker v-model:value="orderFilter.timeRange"
+                                                               type="datetimerange"
+                                                               clearable></n-date-picker>
+                                            </n-form-item>
+                                        </n-grid-item>
+                                        <n-grid-item :span="8">
+                                            <n-space justify="end" style="margin-top: 24px">
+                                                <n-button type="primary" @click="refreshOrders">
+                                                    查询
+                                                </n-button>
+                                                <n-button @click="resetOrderFilter">
+                                                    重置
+                                                </n-button>
+                                            </n-space>
+                                        </n-grid-item>
+                                    </n-grid>
+                                </n-form>
+                            </n-card>
+                            <!-- 数据表格 -->
                             <n-data-table
                                     remote
                                     :columns="orderColumns"
@@ -43,51 +114,52 @@
                                         onUpdatePageSize: handleOrderPageSizeChange
                                     }"
                             ></n-data-table>
-                        </n-card>
-                        <!-- 销售统计 -->
-                        <n-space v-if="activeKey === 'sales-stats'" vertical>
-                            <n-card title="商品销量排行">
-                                <n-data-table
-                                        remote
-                                        :columns="productColumns"
-                                        :data="products"
-                                        :loading="loadingStates.products"
-                                        :pagination="{
-                                            page: productPagination.page,
-                                            pageSize: productPagination.pageSize,
-                                            itemCount: productPagination.itemCount,
-                                            pageCount: productPagination.pageCount,
-                                            pageSizes: productPagination.pageSizes,
-                                            showSizePicker: productPagination.showSizePicker,
-                                            onUpdatePage: handleProductPageChange,
-                                            onUpdatePageSize: handleProductPageSizeChange
-                                        }"
-                                ></n-data-table>
-                            </n-card>
-                            <n-card title="店铺销售统计">
-                                <n-data-table
-                                        remote
-                                        :columns="shopColumns"
-                                        :data="shops"
-                                        :loading="loadingStates.shops"
-                                        :pagination="{
-                                            page: shopPagination.page,
-                                            pageSize: shopPagination.pageSize,
-                                            itemCount: shopPagination.itemCount,
-                                            pageCount: shopPagination.pageCount,
-                                            pageSizes: shopPagination.pageSizes,
-                                            showSizePicker: shopPagination.showSizePicker,
-                                            onUpdatePage: handleShopPageChange,
-                                            onUpdatePageSize: handleShopPageSizeChange
-                                        }"
-                                ></n-data-table>
-                            </n-card>
                         </n-space>
-                    </n-layout-content>
-                </n-layout>
+                    </n-card>
+                    <!-- 销售统计 -->
+                    <n-space v-if="activeKey === 'sales-stats'" vertical>
+                        <n-card title="商品销量排行">
+                            <n-data-table
+                                    remote
+                                    :columns="productColumns"
+                                    :data="products"
+                                    :loading="loadingStates.products"
+                                    :pagination="{
+                                        page: productPagination.page,
+                                        pageSize: productPagination.pageSize,
+                                        itemCount: productPagination.itemCount,
+                                        pageCount: productPagination.pageCount,
+                                        pageSizes: productPagination.pageSizes,
+                                        showSizePicker: productPagination.showSizePicker,
+                                        onUpdatePage: handleProductPageChange,
+                                        onUpdatePageSize: handleProductPageSizeChange
+                                    }"
+                            ></n-data-table>
+                        </n-card>
+                        <n-card title="店铺销售统计">
+                            <n-data-table
+                                    remote
+                                    :columns="shopColumns"
+                                    :data="shops"
+                                    :loading="loadingStates.shops"
+                                    :pagination="{
+                                        page: shopPagination.page,
+                                        pageSize: shopPagination.pageSize,
+                                        itemCount: shopPagination.itemCount,
+                                        pageCount: shopPagination.pageCount,
+                                        pageSizes: shopPagination.pageSizes,
+                                        showSizePicker: shopPagination.showSizePicker,
+                                        onUpdatePage: handleShopPageChange,
+                                        onUpdatePageSize: handleShopPageSizeChange
+                                    }"
+                            ></n-data-table>
+                        </n-card>
+                    </n-space>
+                </n-layout-content>
             </n-layout>
-        </n-config-provider>
-    </div>
-    <script src="js/app.js"></script>
+        </n-layout>
+    </n-config-provider>
+</div>
+<script src="js/app.js"></script>
 </body>
 </html>

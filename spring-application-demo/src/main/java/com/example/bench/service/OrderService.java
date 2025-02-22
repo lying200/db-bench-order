@@ -12,9 +12,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
+import jakarta.persistence.criteria.Predicate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +32,60 @@ public class OrderService {
     private final OrderItemRepository orderItemRepository;
 
     @Transactional(readOnly = true)
-    public Page<Order> findOrders(Long userId, Integer status, Pageable pageable) {
-        if (userId != null) {
-            if (status != null) {
-                return orderRepository.findByUserIdAndStatus(userId, status, pageable);
+    public Page<Order> findOrders(
+            Long userId,
+            Integer status,
+            String shopName,
+            Boolean isPayed,
+            Long minTotal,
+            Long maxTotal,
+            LocalDateTime startTime,
+            LocalDateTime endTime,
+            Pageable pageable) {
+
+        Specification<Order> spec = (root, query, cb) -> {
+            List<Predicate> predicates = new ArrayList<>();
+
+            // 用户ID筛选
+            if (userId != null) {
+                predicates.add(cb.equal(root.get("userId"), userId));
             }
-            return orderRepository.findByUserId(userId, pageable);
-        }
-        return orderRepository.findAll(pageable);
+
+            // 订单状态筛选
+            if (status != null) {
+                predicates.add(cb.equal(root.get("status"), status));
+            }
+
+            // 店铺名称模糊搜索
+            if (StringUtils.hasText(shopName)) {
+                predicates.add(cb.like(root.get("shopName"), "%" + shopName + "%"));
+            }
+
+            // 支付状态筛选
+            if (isPayed != null) {
+                predicates.add(cb.equal(root.get("isPayed"), isPayed));
+            }
+
+            // 订单金额范围筛选
+            if (minTotal != null) {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("total"), minTotal));
+            }
+            if (maxTotal != null) {
+                predicates.add(cb.lessThanOrEqualTo(root.get("total"), maxTotal));
+            }
+
+            // 时间范围筛选
+            if (startTime != null) {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("createTime"), startTime));
+            }
+            if (endTime != null) {
+                predicates.add(cb.lessThanOrEqualTo(root.get("createTime"), endTime));
+            }
+
+            return cb.and(predicates.toArray(new Predicate[0]));
+        };
+
+        return orderRepository.findAll(spec, pageable);
     }
 
     @Transactional(readOnly = true)
