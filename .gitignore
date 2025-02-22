@@ -30,6 +30,13 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Gradle
+.gradle
+**/build/
+!src/**/build/
+.gradletasknamecache
+gradle-app.setting
+
 # IDE
 .idea/
 *.iws
