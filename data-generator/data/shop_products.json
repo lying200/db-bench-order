@@ -1,0 +1,366 @@
+{
+    "手机数码": {
+        "华为官方旗舰店": [
+            {"name": "华为Mate60 Pro 暗青色 512GB", "price_range": [6999, 8999]},
+            {"name": "华为P70 Art 曜金黑 512GB", "price_range": [7999, 9999]},
+            {"name": "华为nova12 Pro 雅致银 256GB", "price_range": [3999, 4999]},
+            {"name": "华为MatePad Pro 12.9英寸", "price_range": [5999, 7999]},
+            {"name": "华为FreeBuds Pro 3", "price_range": [1099, 1499]},
+            {"name": "华为Watch GT4 典雅版", "price_range": [1999, 2499]},
+            {"name": "华为MateBook X Pro", "price_range": [9999, 12999]}
+        ],
+        "小米官方旗舰店": [
+            {"name": "小米14 Pro 钛金属版", "price_range": [4999, 6999]},
+            {"name": "Redmi K70 Pro", "price_range": [3299, 4299]},
+            {"name": "小米平板6 Pro", "price_range": [2999, 4999]},
+            {"name": "小米手环8 Pro", "price_range": [299, 399]},
+            {"name": "Redmi Buds 4 Pro", "price_range": [399, 599]},
+            {"name": "小米笔记本Pro X 15", "price_range": [6999, 8999]},
+            {"name": "小米显示器27 4K", "price_range": [2499, 2999]}
+        ],
+        "苹果官方旗舰店": [
+            {"name": "iPhone 15 Pro Max", "price_range": [9999, 13999]},
+            {"name": "iPad Pro 12.9", "price_range": [7999, 12999]},
+            {"name": "MacBook Pro 14", "price_range": [14999, 19999]},
+            {"name": "AirPods Pro 2", "price_range": [1799, 2099]},
+            {"name": "Apple Watch Series 9", "price_range": [3299, 4299]},
+            {"name": "iMac 24英寸", "price_range": [12999, 15999]}
+        ]
+    },
+    "家用电器": {
+        "美的官方旗舰店": [
+            {"name": "美的空调KFR-35GW/BP3DN8Y-X1", "price_range": [2999, 3999]},
+            {"name": "美的冰箱BCD-325WTPZM", "price_range": [3499, 4499]},
+            {"name": "美的洗衣机MG100V11D", "price_range": [2699, 3699]},
+            {"name": "美的电饭煲MB-WFS4029", "price_range": [399, 599]},
+            {"name": "美的微波炉M3-L233B", "price_range": [499, 699]},
+            {"name": "美的洗碗机RX600", "price_range": [3999, 4999]},
+            {"name": "美的净水器MRC1683-100G", "price_range": [1999, 2499]}
+        ],
+        "海尔官方旗舰店": [
+            {"name": "海尔空调KFR-35GW/03EDS81", "price_range": [3199, 4199]},
+            {"name": "海尔冰箱BCD-470WDPG", "price_range": [4299, 5299]},
+            {"name": "海尔洗衣机G100728B12G", "price_range": [2899, 3899]},
+            {"name": "海尔热水器EC6002-R", "price_range": [999, 1499]},
+            {"name": "海尔净水器HRO7519A-4", "price_range": [1999, 2999]},
+            {"name": "海尔干衣机EGDHE12", "price_range": [3999, 4999]},
+            {"name": "海尔洗碗机EW14718", "price_range": [3699, 4699]}
+        ]
+    },
+    "厨房电器": {
+        "九阳官方旗舰店": [
+            {"name": "九阳破壁机Y929", "price_range": [799, 1299]},
+            {"name": "九阳豆浆机DJ13E-Q8", "price_range": [299, 499]},
+            {"name": "九阳空气炸锅KL35-VF161", "price_range": [299, 499]},
+            {"name": "九阳电饭煲F-50FY810", "price_range": [399, 699]},
+            {"name": "九阳料理机L18-Y925", "price_range": [399, 699]}
+        ],
+        "苏泊尔官方旗舰店": [
+            {"name": "苏泊尔电压力锅SY-50YC10", "price_range": [399, 699]},
+            {"name": "苏泊尔炒菜机CF40FC829", "price_range": [299, 499]},
+            {"name": "苏泊尔电磁炉C21-SB12E9", "price_range": [199, 399]},
+            {"name": "苏泊尔电水壶SW-15S09A", "price_range": [99, 199]},
+            {"name": "苏泊尔绞肉机SJ10L803", "price_range": [199, 399]}
+        ]
+    },
+    "运动户外": {
+        "耐克官方旗舰店": [
+            {"name": "Nike Air Max 270", "price_range": [899, 1099]},
+            {"name": "Nike Zoom GT Cut 3", "price_range": [1299, 1499]},
+            {"name": "Nike Dri-FIT跑步上衣", "price_range": [199, 299]},
+            {"name": "Nike Pro训练裤", "price_range": [249, 349]},
+            {"name": "Nike Brasilia双肩包", "price_range": [199, 299]},
+            {"name": "Nike Air Zoom Alphafly", "price_range": [1799, 2299]},
+            {"name": "Nike Tech Fleece夹克", "price_range": [799, 999]}
+        ],
+        "安踏官方旗舰店": [
+            {"name": "安踏KT9篮球鞋", "price_range": [699, 899]},
+            {"name": "安踏跑步鞋", "price_range": [299, 499]},
+            {"name": "安踏运动外套", "price_range": [199, 399]},
+            {"name": "安踏运动裤", "price_range": [149, 249]},
+            {"name": "安踏运动包", "price_range": [99, 199]},
+            {"name": "安踏羽绒服", "price_range": [499, 799]},
+            {"name": "安踏篮球背心", "price_range": [129, 199]}
+        ]
+    },
+    "美妆个护": {
+        "兰蔻官方旗舰店": [
+            {"name": "兰蔻小黑瓶精华", "price_range": [899, 1299]},
+            {"name": "兰蔻菁纯面霜", "price_range": [699, 999]},
+            {"name": "兰蔻持妆粉底液", "price_range": [499, 699]},
+            {"name": "兰蔻防晒乳", "price_range": [299, 499]},
+            {"name": "兰蔻眼霜", "price_range": [499, 799]}
+        ],
+        "欧莱雅官方旗舰店": [
+            {"name": "欧莱雅复颜抗皱精华", "price_range": [199, 299]},
+            {"name": "欧莱雅清润葡萄籽水", "price_range": [99, 169]},
+            {"name": "欧莱雅口红", "price_range": [129, 199]},
+            {"name": "欧莱雅洗发水", "price_range": [59, 99]},
+            {"name": "欧莱雅面膜", "price_range": [149, 249]}
+        ]
+    },
+    "母婴用品": {
+        "飞鸽官方旗舰店": [
+            {"name": "飞鸽婴儿奶瓶", "price_range": [99, 199]},
+            {"name": "飞鸽婴儿推车", "price_range": [999, 1999]},
+            {"name": "飞鸽婴儿床", "price_range": [699, 1499]},
+            {"name": "飞鸽婴儿背带", "price_range": [199, 399]},
+            {"name": "飞鸽婴儿餐椅", "price_range": [299, 599]}
+        ],
+        "好孩子官方旗舰店": [
+            {"name": "好孩子婴儿车", "price_range": [1299, 2499]},
+            {"name": "好孩子安全座椅", "price_range": [999, 1999]},
+            {"name": "好孩子婴儿床", "price_range": [799, 1599]},
+            {"name": "好孩子餐椅", "price_range": [399, 699]},
+            {"name": "好孩子学步车", "price_range": [299, 599]}
+        ]
+    },
+    "家居家装": {
+        "欧派官方旗舰店": [
+            {"name": "欧派整体橱柜", "price_range": [19999, 39999]},
+            {"name": "欧派衣柜", "price_range": [8999, 15999]},
+            {"name": "欧派浴室柜", "price_range": [2999, 5999]},
+            {"name": "欧派餐边柜", "price_range": [1999, 3999]},
+            {"name": "欧派鞋柜", "price_range": [1499, 2999]}
+        ],
+        "全友家居官方旗舰店": [
+            {"name": "全友布艺沙发", "price_range": [2999, 5999]},
+            {"name": "全友实木床", "price_range": [1999, 3999]},
+            {"name": "全友餐桌椅", "price_range": [1499, 2999]},
+            {"name": "全友茶几", "price_range": [699, 1499]},
+            {"name": "全友电视柜", "price_range": [899, 1799]}
+        ]
+    },
+    "图书文娱": {
+        "当当官方旗舰店": [
+            {"name": "人生海海 麦家", "price_range": [39, 59]},
+            {"name": "三体全集 刘慈欣", "price_range": [99, 129]},
+            {"name": "活着 余华", "price_range": [29, 45]},
+            {"name": "时间简史 霍金", "price_range": [45, 69]},
+            {"name": "明朝那些事儿全集", "price_range": [199, 299]},
+            {"name": "人类简史 尤瓦尔", "price_range": [59, 89]},
+            {"name": "百年孤独 马尔克斯", "price_range": [49, 79]},
+            {"name": "解忧杂货店 东野圭吾", "price_range": [35, 55]}
+        ],
+        "博库图书专营店": [
+            {"name": "Python编程从入门到实践", "price_range": [79, 99]},
+            {"name": "算法导论 原书第4版", "price_range": [199, 299]},
+            {"name": "深入理解计算机系统", "price_range": [159, 239]},
+            {"name": "JavaScript高级程序设计", "price_range": [129, 169]},
+            {"name": "设计模式 Head First", "price_range": [89, 119]},
+            {"name": "数据结构与算法分析", "price_range": [69, 99]},
+            {"name": "Java核心技术卷I", "price_range": [149, 199]},
+            {"name": "C++ Primer Plus", "price_range": [119, 159]}
+        ],
+        "中国音像官方旗舰店": [
+            {"name": "周杰伦专辑 最伟大的作品", "price_range": [139, 179]},
+            {"name": "五月天专辑 第二人生", "price_range": [129, 169]},
+            {"name": "邓丽君经典珍藏集", "price_range": [299, 399]},
+            {"name": "张学友经典专辑集", "price_range": [259, 359]},
+            {"name": "Beyond经典重制版", "price_range": [199, 299]},
+            {"name": "民谣吉他入门教程", "price_range": [89, 129]},
+            {"name": "古典音乐精选集", "price_range": [159, 259]},
+            {"name": "中国戏曲名家名段", "price_range": [199, 299]}
+        ]
+    },
+    "食品生鲜": {
+        "三只松鼠旗舰店": [
+            {"name": "每日坚果大礼包", "price_range": [149, 199]},
+            {"name": "开心果原味", "price_range": [59, 89]},
+            {"name": "碧根果奶油味", "price_range": [49, 79]},
+            {"name": "夏威夷果", "price_range": [69, 99]},
+            {"name": "巴旦木", "price_range": [45, 75]},
+            {"name": "蜜饯果干", "price_range": [29, 49]},
+            {"name": "肉脯零食", "price_range": [35, 55]},
+            {"name": "糖果巧克力", "price_range": [25, 45]}
+        ],
+        "盒马生鲜旗舰店": [
+            {"name": "澳洲进口牛排", "price_range": [199, 299]},
+            {"name": "三文鱼刺身", "price_range": [89, 129]},
+            {"name": "大连海参", "price_range": [299, 499]},
+            {"name": "帝王蟹", "price_range": [399, 599]},
+            {"name": "新西兰青口贝", "price_range": [69, 99]},
+            {"name": "北极甜虾", "price_range": [89, 139]},
+            {"name": "智利车厘子", "price_range": [99, 159]},
+            {"name": "泰国金枕榴莲", "price_range": [199, 299]}
+        ],
+        "百草味旗舰店": [
+            {"name": "坚果礼盒", "price_range": [129, 179]},
+            {"name": "零食大礼包", "price_range": [99, 149]},
+            {"name": "猪肉脯", "price_range": [39, 59]},
+            {"name": "牛肉干", "price_range": [45, 75]},
+            {"name": "鱿鱼丝", "price_range": [29, 49]},
+            {"name": "薯片", "price_range": [19, 35]},
+            {"name": "瓜子", "price_range": [25, 45]},
+            {"name": "糖果", "price_range": [15, 35]}
+        ]
+    },
+    "宠物用品": {
+        "皇家官方旗舰店": [
+            {"name": "幼猫猫粮", "price_range": [199, 299]},
+            {"name": "成猫猫粮", "price_range": [159, 259]},
+            {"name": "老年猫猫粮", "price_range": [179, 279]},
+            {"name": "小型犬狗粮", "price_range": [169, 269]},
+            {"name": "中型犬狗粮", "price_range": [189, 289]},
+            {"name": "大型犬狗粮", "price_range": [209, 309]},
+            {"name": "猫咪零食", "price_range": [49, 89]},
+            {"name": "狗狗零食", "price_range": [59, 99]}
+        ],
+        "宠物用品专营店": [
+            {"name": "猫砂盆全套", "price_range": [99, 159]},
+            {"name": "狗狗尿垫", "price_range": [39, 69]},
+            {"name": "猫爬架", "price_range": [299, 499]},
+            {"name": "宠物玩具套装", "price_range": [69, 129]},
+            {"name": "宠物清洁用品", "price_range": [49, 89]},
+            {"name": "宠物美容工具", "price_range": [129, 199]},
+            {"name": "宠物外出包", "price_range": [159, 259]},
+            {"name": "宠物衣服", "price_range": [69, 129]}
+        ],
+        "疯狂小狗旗舰店": [
+            {"name": "狗狗磨牙玩具", "price_range": [29, 59]},
+            {"name": "宠物训练用品", "price_range": [89, 149]},
+            {"name": "狗狗牵引绳", "price_range": [49, 89]},
+            {"name": "宠物餐具", "price_range": [39, 79]},
+            {"name": "宠物窝", "price_range": [159, 259]},
+            {"name": "宠物保健品", "price_range": [99, 169]},
+            {"name": "宠物服饰", "price_range": [79, 139]},
+            {"name": "宠物零食大礼包", "price_range": [69, 119]}
+        ]
+    },
+    "办公用品": {
+        "得力官方旗舰店": [
+            {"name": "得力复印纸A4 80g 500张", "price_range": [23, 35]},
+            {"name": "得力订书机套装", "price_range": [15, 25]},
+            {"name": "得力文件夹资料册", "price_range": [8, 15]},
+            {"name": "得力中性笔12支装", "price_range": [12, 20]},
+            {"name": "得力彩色记号笔套装", "price_range": [15, 25]},
+            {"name": "得力计算器", "price_range": [45, 75]},
+            {"name": "得力打印标签", "price_range": [19, 29]},
+            {"name": "得力文件柜", "price_range": [299, 499]},
+            {"name": "得力碎纸机", "price_range": [199, 399]},
+            {"name": "得力印章套装", "price_range": [59, 99]}
+        ],
+        "晨光官方旗舰店": [
+            {"name": "晨光按动中性笔", "price_range": [1.5, 3]},
+            {"name": "晨光荧光笔6色套装", "price_range": [9, 15]},
+            {"name": "晨光修正带3个装", "price_range": [10, 18]},
+            {"name": "晨光笔记本A5", "price_range": [5, 10]},
+            {"name": "晨光便利贴组合装", "price_range": [8, 15]},
+            {"name": "晨光固体胶水", "price_range": [3, 6]},
+            {"name": "晨光彩铅36色", "price_range": [25, 45]},
+            {"name": "晨光钢笔墨水套装", "price_range": [29, 49]},
+            {"name": "晨光文具礼盒套装", "price_range": [49, 89]},
+            {"name": "晨光考试必备文具盒", "price_range": [39, 69]}
+        ],
+        "惠普办公旗舰店": [
+            {"name": "惠普打印机墨盒", "price_range": [199, 299]},
+            {"name": "惠普喷墨打印纸", "price_range": [45, 69]},
+            {"name": "惠普激光打印机", "price_range": [999, 1499]},
+            {"name": "惠普扫描仪", "price_range": [799, 1299]},
+            {"name": "惠普投影仪", "price_range": [2999, 4999]},
+            {"name": "惠普碳粉盒", "price_range": [399, 599]},
+            {"name": "惠普商用复印机", "price_range": [3999, 5999]},
+            {"name": "惠普标签打印机", "price_range": [499, 799]},
+            {"name": "惠普办公耗材套装", "price_range": [599, 899]},
+            {"name": "惠普一体机", "price_range": [1499, 2499]}
+        ],
+        "齐心官方旗舰店": [
+            {"name": "齐心文件架", "price_range": [29, 49]},
+            {"name": "齐心档案盒5个装", "price_range": [25, 45]},
+            {"name": "齐心财务凭证", "price_range": [15, 25]},
+            {"name": "齐心白板", "price_range": [99, 199]},
+            {"name": "齐心装订机", "price_range": [159, 259]},
+            {"name": "齐心考勤机", "price_range": [399, 699]},
+            {"name": "齐心保险箱", "price_range": [599, 999]},
+            {"name": "齐心会议系统", "price_range": [1999, 2999]},
+            {"name": "齐心办公椅", "price_range": [499, 799]},
+            {"name": "齐心电子白板", "price_range": [2999, 4999]}
+        ],
+        "西玛办公用品专营店": [
+            {"name": "西玛记账凭证", "price_range": [12, 20]},
+            {"name": "西玛财务单据", "price_range": [8, 15]},
+            {"name": "西玛收据本", "price_range": [5, 10]},
+            {"name": "西玛会计账本", "price_range": [25, 45]},
+            {"name": "西玛现金日记账", "price_range": [15, 25]},
+            {"name": "西玛费用报销单", "price_range": [8, 15]},
+            {"name": "西玛记账本", "price_range": [19, 35]},
+            {"name": "西玛凭证装订套装", "price_range": [89, 149]},
+            {"name": "西玛财务用品套装", "price_range": [199, 299]},
+            {"name": "西玛会计档案盒", "price_range": [35, 59]}
+        ]
+    },
+    "服装鞋包": {
+        "优衣库官方旗舰店": [
+            {"name": "优衣库男装摇粒绒外套", "price_range": [199, 299]},
+            {"name": "优衣库女装羽绒服", "price_range": [399, 599]},
+            {"name": "优衣库纯棉T恤", "price_range": [79, 129]},
+            {"name": "优衣库牛仔裤", "price_range": [199, 299]},
+            {"name": "优衣库休闲裤", "price_range": [149, 249]},
+            {"name": "优衣库针织开衫", "price_range": [199, 299]},
+            {"name": "优衣库polo衫", "price_range": [99, 159]},
+            {"name": "优衣库AIRism内衣", "price_range": [59, 99]},
+            {"name": "优衣库保暖内衣", "price_range": [129, 199]},
+            {"name": "优衣库防晒衣", "price_range": [159, 259]}
+        ],
+        "阿迪达斯官方旗舰店": [
+            {"name": "阿迪达斯运动鞋", "price_range": [599, 899]},
+            {"name": "阿迪达斯跑步鞋", "price_range": [699, 999]},
+            {"name": "阿迪达斯休闲鞋", "price_range": [499, 799]},
+            {"name": "阿迪达斯运动服", "price_range": [299, 499]},
+            {"name": "阿迪达斯运动裤", "price_range": [249, 399]},
+            {"name": "阿迪达斯卫衣", "price_range": [399, 599]},
+            {"name": "阿迪达斯运动包", "price_range": [199, 399]},
+            {"name": "阿迪达斯运动帽", "price_range": [99, 159]},
+            {"name": "阿迪达斯篮球", "price_range": [159, 259]},
+            {"name": "阿迪达斯足球", "price_range": [159, 259]}
+        ],
+        "ZARA官方旗舰店": [
+            {"name": "ZARA女装连衣裙", "price_range": [399, 699]},
+            {"name": "ZARA男装西装外套", "price_range": [699, 999]},
+            {"name": "ZARA女装风衣", "price_range": [599, 899]},
+            {"name": "ZARA男装夹克", "price_range": [499, 799]},
+            {"name": "ZARA女装半身裙", "price_range": [299, 499]},
+            {"name": "ZARA男装衬衫", "price_range": [249, 399]},
+            {"name": "ZARA女装高跟鞋", "price_range": [399, 699]},
+            {"name": "ZARA男装皮鞋", "price_range": [499, 799]},
+            {"name": "ZARA女包", "price_range": [299, 599]},
+            {"name": "ZARA男士皮带", "price_range": [199, 399]}
+        ],
+        "Coach蔻驰官方旗舰店": [
+            {"name": "Coach女士手提包", "price_range": [1999, 2999]},
+            {"name": "Coach男士公文包", "price_range": [2499, 3499]},
+            {"name": "Coach女士钱包", "price_range": [699, 1299]},
+            {"name": "Coach男士钱包", "price_range": [799, 1399]},
+            {"name": "Coach女士斜挎包", "price_range": [1499, 2499]},
+            {"name": "Coach男士斜挎包", "price_range": [1699, 2699]},
+            {"name": "Coach女士托特包", "price_range": [1899, 2899]},
+            {"name": "Coach男士双肩包", "price_range": [2299, 3299]},
+            {"name": "Coach女士卡包", "price_range": [399, 699]},
+            {"name": "Coach男士腰带", "price_range": [599, 999]}
+        ],
+        "百丽官方旗舰店": [
+            {"name": "百丽女鞋高跟鞋", "price_range": [399, 699]},
+            {"name": "百丽男鞋商务皮鞋", "price_range": [499, 799]},
+            {"name": "百丽女鞋平底鞋", "price_range": [299, 599]},
+            {"name": "百丽男鞋休闲鞋", "price_range": [399, 699]},
+            {"name": "百丽女鞋短靴", "price_range": [499, 899]},
+            {"name": "百丽男鞋马丁靴", "price_range": [599, 999]},
+            {"name": "百丽女鞋运动鞋", "price_range": [399, 699]},
+            {"name": "百丽男鞋帆布鞋", "price_range": [299, 599]},
+            {"name": "百丽女鞋凉鞋", "price_range": [299, 599]},
+            {"name": "百丽男鞋凉鞋", "price_range": [299, 599]}
+        ],
+        "新秀丽官方旗舰店": [
+            {"name": "新秀丽旅行箱20寸", "price_range": [699, 1299]},
+            {"name": "新秀丽旅行箱24寸", "price_range": [899, 1499]},
+            {"name": "新秀丽旅行箱28寸", "price_range": [999, 1699]},
+            {"name": "新秀丽双肩包", "price_range": [499, 899]},
+            {"name": "新秀丽商务公文包", "price_range": [599, 999]},
+            {"name": "新秀丽旅行包", "price_range": [399, 799]},
+            {"name": "新秀丽钱包", "price_range": [299, 599]},
+            {"name": "新秀丽化妆包", "price_range": [199, 399]},
+            {"name": "新秀丽收纳包", "price_range": [159, 299]},
+            {"name": "新秀丽证件包", "price_range": [99, 199]}
+        ]
+    }
+}
