@@ -1,0 +1,32 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+}
+
+.n-layout {
+    height: 100%;
+}
+
+.n-layout-header {
+    height: 64px;
+    padding: 0 24px;
+}
+
+.n-layout-sider {
+    width: 240px;
+}
+
+.amount {
+    color: #f5222d;
+    font-weight: bold;
+}
+
+.status-tag {
+    min-width: 60px;
+    text-align: center;
+}

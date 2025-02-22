@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单管理系统</title>
+    <script src="js/vue.global-3.5.13.js"></script>
+    <script src="js/naive-ui-2.41.0.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <n-config-provider :theme="theme">
+            <n-layout>
+                <n-layout-header bordered>
+                    <n-page-header>
+                        <template #title>订单管理系统</template>
+                    </n-page-header>
+                </n-layout-header>
+                <n-layout has-sider>
+                    <n-layout-sider bordered content-style="padding: 24px;">
+                        <n-menu :options="menuOptions" v-model:value="activeKey" @update:value="handleMenuUpdate"></n-menu>
+                    </n-layout-sider>
+                    <n-layout-content content-style="padding: 24px;">
+                        <!-- 订单列表 -->
+                        <n-card v-if="activeKey === 'order-list'" title="订单列表">
+                            <template #header-extra>
+                                <n-button @click="refreshOrders">刷新</n-button>
+                            </template>
+                            <n-data-table
+                                    remote
+                                    :columns="orderColumns"
+                                    :data="orders"
+                                    :loading="loadingStates.orders"
+                                    :pagination="{
+                                        page: orderPagination.page,
+                                        pageSize: orderPagination.pageSize,
+                                        itemCount: orderPagination.itemCount,
+                                        pageCount: orderPagination.pageCount,
+                                        pageSizes: orderPagination.pageSizes,
+                                        showSizePicker: orderPagination.showSizePicker,
+                                        onUpdatePage: handleOrderPageChange,
+                                        onUpdatePageSize: handleOrderPageSizeChange
+                                    }"
+                            ></n-data-table>
+                        </n-card>
+                        <!-- 销售统计 -->
+                        <n-space v-if="activeKey === 'sales-stats'" vertical>
+                            <n-card title="商品销量排行">
+                                <n-data-table
+                                        remote
+                                        :columns="productColumns"
+                                        :data="products"
+                                        :loading="loadingStates.products"
+                                        :pagination="{
+                                            page: productPagination.page,
+                                            pageSize: productPagination.pageSize,
+                                            itemCount: productPagination.itemCount,
+                                            pageCount: productPagination.pageCount,
+                                            pageSizes: productPagination.pageSizes,
+                                            showSizePicker: productPagination.showSizePicker,
+                                            onUpdatePage: handleProductPageChange,
+                                            onUpdatePageSize: handleProductPageSizeChange
+                                        }"
+                                ></n-data-table>
+                            </n-card>
+                            <n-card title="店铺销售统计">
+                                <n-data-table
+                                        remote
+                                        :columns="shopColumns"
+                                        :data="shops"
+                                        :loading="loadingStates.shops"
+                                        :pagination="{
+                                            page: shopPagination.page,
+                                            pageSize: shopPagination.pageSize,
+                                            itemCount: shopPagination.itemCount,
+                                            pageCount: shopPagination.pageCount,
+                                            pageSizes: shopPagination.pageSizes,
+                                            showSizePicker: shopPagination.showSizePicker,
+                                            onUpdatePage: handleShopPageChange,
+                                            onUpdatePageSize: handleShopPageSizeChange
+                                        }"
+                                ></n-data-table>
+                            </n-card>
+                        </n-space>
+                    </n-layout-content>
+                </n-layout>
+            </n-layout>
+        </n-config-provider>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
