@@ -1,4 +1,4 @@
-# db-bench-order
+# data-generator
 
 基于电商订单场景的数据库性能测试，用于测试和比较 MySQL、PostgreSQL、Doris、ClickHouse 和 Elasticsearch 等不同数据库的性能表现。
 
