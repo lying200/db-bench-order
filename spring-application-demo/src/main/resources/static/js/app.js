@@ -167,7 +167,7 @@ const App = {
 
         // 刷新订单列表
         const refreshOrders = async () => {
-            loadingStates.orders = true;
+            loadingStates.value.orders = true;
             try {
                 const params = new URLSearchParams({
                     page: orderPagination.value.page,
@@ -204,7 +204,7 @@ const App = {
             } catch (error) {
                 console.error('Failed to fetch orders:', error);
             } finally {
-                loadingStates.orders = false;
+                loadingStates.value.orders = false;
             }
         };
 
