@@ -2,7 +2,6 @@ package com.example.bench.service;
 
 import com.example.bench.entity.Order;
 import com.example.bench.entity.OrderItem;
-import com.example.bench.repository.OrderAddrRepository;
 import com.example.bench.repository.OrderItemRepository;
 import com.example.bench.repository.OrderRepository;
 import com.example.bench.vo.OrderStatVO;
@@ -10,7 +9,6 @@ import com.example.bench.vo.ProductSalesVO;
 import com.example.bench.vo.ShopSalesVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
