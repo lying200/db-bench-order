@@ -1,23 +1,21 @@
 package com.example.bench.service;
 
+import com.example.bench.domain.repository.OrderItemRepositoryGateway;
+import com.example.bench.domain.repository.OrderRepositoryGateway;
 import com.example.bench.entity.Order;
 import com.example.bench.entity.OrderItem;
-import com.example.bench.repository.OrderItemRepository;
-import com.example.bench.repository.OrderRepository;
+import com.example.bench.infrastructure.factory.OrderItemRepositoryFactory;
+import com.example.bench.infrastructure.factory.OrderRepositoryFactory;
 import com.example.bench.vo.OrderStatVO;
 import com.example.bench.vo.ProductSalesVO;
 import com.example.bench.vo.ShopSalesVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
-import jakarta.persistence.criteria.Predicate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -26,8 +24,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderService {
 
-    private final OrderRepository orderRepository;
-    private final OrderItemRepository orderItemRepository;
+    private final OrderRepositoryFactory orderRepositoryFactory;
+    private final OrderItemRepositoryFactory orderItemRepositoryFactory;
 
     @Transactional(readOnly = true)
     public Page<Order> findOrders(
@@ -41,58 +39,20 @@ public class OrderService {
             LocalDateTime endTime,
             Pageable pageable) {
 
-        Specification<Order> spec = (root, query, cb) -> {
-            List<Predicate> predicates = new ArrayList<>();
-
-            // 用户ID筛选
-            if (userId != null) {
-                predicates.add(cb.equal(root.get("userId"), userId));
-            }
-
-            // 订单状态筛选
-            if (status != null) {
-                predicates.add(cb.equal(root.get("status"), status));
-            }
-
-            // 店铺名称模糊搜索
-            if (StringUtils.hasText(shopName)) {
-                predicates.add(cb.like(root.get("shopName"), "%" + shopName + "%"));
-            }
-
-            // 支付状态筛选
-            if (isPayed != null) {
-                predicates.add(cb.equal(root.get("isPayed"), isPayed));
-            }
-
-            // 订单金额范围筛选
-            if (minTotal != null) {
-                predicates.add(cb.greaterThanOrEqualTo(root.get("total"), minTotal));
-            }
-            if (maxTotal != null) {
-                predicates.add(cb.lessThanOrEqualTo(root.get("total"), maxTotal));
-            }
-
-            // 时间范围筛选
-            if (startTime != null) {
-                predicates.add(cb.greaterThanOrEqualTo(root.get("createTime"), startTime));
-            }
-            if (endTime != null) {
-                predicates.add(cb.lessThanOrEqualTo(root.get("createTime"), endTime));
-            }
-
-            return cb.and(predicates.toArray(new Predicate[0]));
-        };
-
-        return orderRepository.findAll(spec, pageable);
+        OrderRepositoryGateway orderRepository = orderRepositoryFactory.getOrderRepository();
+        return orderRepository.findOrders(
+                userId, status, shopName, isPayed, minTotal, maxTotal, startTime, endTime, pageable);
     }
 
     @Transactional(readOnly = true)
     public List<OrderStatVO> getRegionStats(LocalDateTime startTime, LocalDateTime endTime) {
-        return orderRepository.countOrdersByRegion(startTime, endTime);
+        OrderRepositoryGateway orderRepository = orderRepositoryFactory.getOrderRepository();
+        return orderRepository.getRegionStats(startTime, endTime);
     }
 
     @Transactional(readOnly = true)
     public Map<Integer, Long> getHourlyStats(LocalDateTime startTime, LocalDateTime endTime) {
+        OrderRepositoryGateway orderRepository = orderRepositoryFactory.getOrderRepository();
         return orderRepository.countOrdersByHour(startTime, endTime)
                 .stream()
                 .collect(Collectors.toMap(
@@ -103,16 +63,22 @@ public class OrderService {
 
     @Transactional(readOnly = true)
     public Page<ProductSalesVO> getProductSales(LocalDateTime startTime, LocalDateTime endTime, Pageable pageable) {
+        OrderItemRepositoryGateway orderItemRepository =
+                orderItemRepositoryFactory.getOrderItemRepository();
         return orderItemRepository.findTopSellingProducts(startTime, endTime, pageable);
     }
 
     @Transactional(readOnly = true)
     public Page<ShopSalesVO> getShopSales(LocalDateTime startTime, LocalDateTime endTime, Pageable pageable) {
+        OrderItemRepositoryGateway orderItemRepository =
+                orderItemRepositoryFactory.getOrderItemRepository();
         return orderItemRepository.calculateShopSales(startTime, endTime, pageable);
     }
 
     @Transactional(readOnly = true)
     public List<OrderItem> getOrderItems(Long orderId) {
+        OrderItemRepositoryGateway orderItemRepository =
+                orderItemRepositoryFactory.getOrderItemRepository();
         return orderItemRepository.findByOrderId(orderId);
     }
 }

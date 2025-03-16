@@ -1,4 +1,4 @@
-package com.example.bench.repository;
+package com.example.bench.infrastructure.jpa.repository;
 
 import com.example.bench.entity.OrderItem;
 import com.example.bench.vo.ProductSalesVO;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @Tag(name = "订单项数据访问层", description = "订单项相关的数据库操作")
 public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
-    
+
     /**
      * 查询订单的所有商品项
      * @param orderId 订单ID
@@ -23,7 +23,7 @@ public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
      */
     @Query("SELECT oi FROM OrderItem oi WHERE oi.order.orderId = :orderId")
     List<OrderItem> findByOrderId(@Param("orderId") Long orderId);
-    
+
     /**
      * 获取热销商品排行
      * @param startTime 开始时间
@@ -42,7 +42,7 @@ public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
             @Param("startTime") LocalDateTime startTime,
             @Param("endTime") LocalDateTime endTime,
             Pageable pageable);
-    
+
     /**
      * 获取店铺销售统计
      * @param startTime 开始时间

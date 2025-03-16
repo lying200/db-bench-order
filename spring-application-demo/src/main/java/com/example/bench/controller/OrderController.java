@@ -40,13 +40,13 @@ public class OrderController {
             @Parameter(description = "是否已支付") @RequestParam(required = false) Boolean isPayed,
             @Parameter(description = "最小订单金额") @RequestParam(required = false) Long minTotal,
             @Parameter(description = "最大订单金额") @RequestParam(required = false) Long maxTotal,
-            @Parameter(description = "开始时间") 
+            @Parameter(description = "开始时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
-            @Parameter(description = "结束时间") 
+            @Parameter(description = "结束时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime,
             @Parameter(description = "排序字段，支持create_time和total") @RequestParam(required = false) String sortField,
             @Parameter(description = "排序方向，asc或desc") @RequestParam(defaultValue = "desc") String sortDirection) {
-        
+
         // 构建排序
         List<Sort.Order> orders = new ArrayList<>();
         if (sortField != null) {
@@ -55,16 +55,16 @@ public class OrderController {
         }
         // 默认按创建时间倒序
         orders.add(new Sort.Order(Sort.Direction.DESC, "createTime"));
-        
+
         return orderService.findOrders(
-            userId, 
-            status, 
-            shopName, 
-            isPayed, 
-            minTotal, 
-            maxTotal, 
-            startTime, 
-            endTime, 
+            userId,
+            status,
+            shopName,
+            isPayed,
+            minTotal,
+            maxTotal,
+            startTime,
+            endTime,
             PageRequest.of(page - 1, size, Sort.by(orders))
         );
     }
@@ -79,9 +79,9 @@ public class OrderController {
     @Operation(summary = "获取地区订单统计")
     @GetMapping("/stats/regions")
     public List<OrderStatVO> getRegionStats(
-            @Parameter(description = "开始时间") 
+            @Parameter(description = "开始时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
-            @Parameter(description = "结束时间") 
+            @Parameter(description = "结束时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
         return orderService.getRegionStats(startTime, endTime);
     }
@@ -89,9 +89,9 @@ public class OrderController {
     @Operation(summary = "获取每小时订单统计")
     @GetMapping("/stats/hourly")
     public Map<Integer, Long> getHourlyStats(
-            @Parameter(description = "开始时间") 
+            @Parameter(description = "开始时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
-            @Parameter(description = "结束时间") 
+            @Parameter(description = "结束时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
         return orderService.getHourlyStats(startTime, endTime);
     }
@@ -101,9 +101,9 @@ public class OrderController {
     public Page<ProductSalesVO> getProductSales(
             @Parameter(description = "页码，从1开始") @RequestParam(defaultValue = "1") int page,
             @Parameter(description = "每页大小") @RequestParam(defaultValue = "10") int size,
-            @Parameter(description = "开始时间") 
+            @Parameter(description = "开始时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
-            @Parameter(description = "结束时间") 
+            @Parameter(description = "结束时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
         return orderService.getProductSales(startTime, endTime, PageRequest.of(page - 1, size));
     }
@@ -113,9 +113,9 @@ public class OrderController {
     public Page<ShopSalesVO> getShopSales(
             @Parameter(description = "页码，从1开始") @RequestParam(defaultValue = "1") int page,
             @Parameter(description = "每页大小") @RequestParam(defaultValue = "10") int size,
-            @Parameter(description = "开始时间") 
+            @Parameter(description = "开始时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
-            @Parameter(description = "结束时间") 
+            @Parameter(description = "结束时间")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
         return orderService.getShopSales(startTime, endTime, PageRequest.of(page - 1, size));
     }

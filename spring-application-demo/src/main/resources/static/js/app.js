@@ -172,7 +172,7 @@ const App = {
                 const params = new URLSearchParams({
                     page: orderPagination.value.page,
                     size: orderPagination.value.pageSize,
-                    sortField: orderFilter.sortField,
+                    sortField: orderFilter.sortField || 'createTime',
                     sortDirection: orderFilter.sortDirection
                 });
 
